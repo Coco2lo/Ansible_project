@@ -1,0 +1,23 @@
+- name: "Apache Installation"
+  hosts: all
+  tasks:
+    - name: "Install apache package"
+      yum:
+        name: "apache2"
+        state: "present"
+    - name: "Start apache service"
+      service:
+        name: "apache2"
+        state: "started"
+        enabled: yes
+    - name: "Allow http connection"
+      firewalld:
+        service: "apache"
+        permanent: yes
+        state: "enabled"
+    - name: "Copy test.html"
+      copy:
+        src: "test.html"
+        dest: "/var/www/html"
+        owner: "test"
+        group: "test"
