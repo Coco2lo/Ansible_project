@@ -1,0 +1,7 @@
+apache:
+  hosts:
+    test@192.168.0.34: {}
+ 
+mysql:
+  hosts:
+    sqluser@192.168.0.36: {}
